@@ -1,1 +1,196 @@
 @import '../../../../assets/css/definitions';
+
+.terms {
+    display: block;
+
+    &__content {
+        color: #59606b;
+        font-size: 14px;
+        line-height: 22px;
+        font-weight: 500;
+        text-align: justify;
+        padding: 35px 20px 120px;
+    }
+
+    h1 {
+        display: block;
+        font-size: 20px;
+        line-height: 28px;
+        font-weight: bold;
+        text-align: center;
+        width: 100%;
+    }
+
+    h2 {
+        display: block;
+        font-size: 18px;
+        line-height: 22px;
+        font-weight: 600;
+        text-align: center;
+        width: 100%;
+    }
+
+    h3 {
+        display: block;
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: 600;
+        text-align: center;
+        width: 100%;
+    }
+
+    h1 + h2 {
+        margin-top: 24px;
+    }
+
+    p + h2,
+    .list + h2 {
+        margin-top: 45px;
+    }
+
+    p + h3,
+    .list + h3 {
+        margin-top: 30px;
+    }
+
+    p {
+        display: block;
+        padding-top: 24px;
+    }
+
+    h3 + p {
+        padding-top: 15px;
+    }
+
+    .list {
+        &_section {
+            list-style-type: none;
+            counter-reset: item;
+
+            > li {
+                display: table;
+                counter-increment: item;
+                margin-bottom: 0.6em;
+
+                &:before {
+                    content: counters(item, ".") ". ";
+                    display: table-cell;
+                    padding-right: 0.6em;
+                    font-weight: bold;
+                }
+            }
+        }
+
+        &_letter {
+            list-style-type: none;
+            counter-reset: item;
+
+            > li {
+                display: table;
+                counter-increment: item;
+                margin-bottom: 0.6em;
+
+                &:before {
+                    content: counter(item, upper-alpha) ". ";
+                    display: table-cell;
+                    padding-right: 0.6em;
+                    font-weight: bold;
+                }
+            }
+        }
+
+        &_dot {
+            list-style-type: none;
+
+            > li {
+                display: table;
+                margin-bottom: 0.6em;
+
+                &:before {
+                    content: "● ";
+                    display: table-cell;
+                    padding-right: 0.6em;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+
+    h1 + .list,
+    h2 + .list,
+    h3 + .list,
+    p + .list {
+        margin-top: 15px;
+    }
+
+    &-panel {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #fff;
+        box-shadow: 0 -1px 0 0 #dde3eb;
+        padding: 15px 8px 8px;
+
+        &__button {
+            display: block;
+            cursor: pointer;
+            background-color: #4875e7;
+            color: #fff;
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 600;
+            white-space: nowrap;
+            user-select: none;
+            border-radius: 6px;
+            text-align: center;
+            width: 100%;
+            padding: 9px 12px;
+
+            margin-top: 15px;
+
+            &[disabled] {
+                pointer-events: none;
+                cursor: default;
+                opacity: 0.5;
+            }
+        }
+
+        &__checkbox {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: flex-start;
+
+            > input {
+                width: 16px;
+                height: 16px;
+            }
+
+            > span {
+                font-size: 14px;
+                font-weight: 500;
+                margin-left: 8px;
+            }
+        }
+    }
+
+    html.viewport_desktop & {
+        padding: 30px 0 60px;
+
+        &__content {
+            background-color: #fff;
+            border-radius: 5px;
+            border: 1px solid #dde3eb;
+            padding: 60px 40px;
+        }
+
+        &-panel {
+            max-width: $content-max-width;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 1px solid #dde3eb;
+            box-shadow: none;
+        }
+    }
+}

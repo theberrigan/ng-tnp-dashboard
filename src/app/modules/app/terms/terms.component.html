@@ -1,1 +1,13 @@
-<div [innerHTML]="content"></div>
+<ng-container [ngSwitch]="isReady">
+    <div *ngSwitchCase="false">Loading...</div>
+    <ng-container *ngSwitchCase="true">
+        <div class="terms__content" [innerHTML]="content" #contentEl [style.paddingBottom.px]="contentBottomPadding"></div>
+        <div class="terms-panel" *ngIf="isAcceptable" #panelEl [style.bottom.px]="panelBottom">
+            <label class="terms-panel__checkbox">
+                <input type="checkbox"/>
+                <span>I accept Terms & Conditions and Privacy policy</span>
+            </label>
+            <button type="button" class="terms-panel__button">Ok</button>
+        </div>
+    </ng-container>
+</ng-container>

@@ -21,7 +21,7 @@
             <div class="nav-mobile__sep"></div>
             <ul class="nav-mobile__list">
                 <li>
-                    <a routerLink="/faq" class="nav-mobile__list-link">
+                    <a routerLink="/faq" class="nav-mobile__list-link" (click)="onClose()">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" class="nav-mobile__list-link-icon">
                             <path style="fill: currentColor;" d="M29.36,15A12,12,0,0,1,8.87,23.49l1.42-1.42A10,10,0,1,0,7.36,15v1.59l3.28-3.3,1.43,1.42-5.71,5.7L.64,14.71l1.43-1.42,3.29,3.3V15a12,12,0,1,1,24,0Zm-11-.4V8.74h-2v7l6.06,3.5,1-1.74Z"></path>
                         </svg>
@@ -29,7 +29,7 @@
                     </a>
                 </li>
                 <li>
-                    <a routerLink="/contact-us" class="nav-mobile__list-link">
+                    <a routerLink="/contact-us" class="nav-mobile__list-link" (click)="onClose()">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" class="nav-mobile__list-link-icon">
                             <path style="fill: currentColor;" d="M29.36,15A12,12,0,0,1,8.87,23.49l1.42-1.42A10,10,0,1,0,7.36,15v1.59l3.28-3.3,1.43,1.42-5.71,5.7L.64,14.71l1.43-1.42,3.29,3.3V15a12,12,0,1,1,24,0Zm-11-.4V8.74h-2v7l6.06,3.5,1-1.74Z"></path>
                         </svg>
@@ -37,7 +37,7 @@
                     </a>
                 </li>
                 <li>
-                    <a routerLink="/terms" class="nav-mobile__list-link">
+                    <a [routerLink]="termsLink" class="nav-mobile__list-link" [class.nav-mobile__list-link_has-dot]="hasTermsDot" (click)="onClose()">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" class="nav-mobile__list-link-icon">
                             <path style="fill: currentColor;" d="M29.36,15A12,12,0,0,1,8.87,23.49l1.42-1.42A10,10,0,1,0,7.36,15v1.59l3.28-3.3,1.43,1.42-5.71,5.7L.64,14.71l1.43-1.42,3.29,3.3V15a12,12,0,1,1,24,0Zm-11-.4V8.74h-2v7l6.06,3.5,1-1.74Z"></path>
                         </svg>

@@ -1,7 +1,27 @@
 <ng-container *ngIf="viewportBreakpoint !== 'desktop'">
-    <main class="mobile-page-content">
-        <router-outlet></router-outlet>
-    </main>
     <nav-mobile [navSubject]="mobileNavSubject"></nav-mobile>
     <app-bar [navSubject]="mobileNavSubject"></app-bar>
 </ng-container>
+<ng-container *ngIf="viewportBreakpoint === 'desktop'">
+    <div class="panel">
+        <div class="panel__inner">
+            <div class="panel__logo"></div>
+        </div>
+    </div>
+</ng-container>
+
+<main class="page-content">
+    <router-outlet></router-outlet>
+</main>
+
+<ng-container *ngIf="viewportBreakpoint === 'desktop'">
+    <footer class="footer">
+        <div class="footer__inner">
+            <span>© 2021 TAPNPAY</span>
+            <a class="footer__link" routerLink="/faq">FAQ</a>
+            <a class="footer__link" routerLink="/contact-us">Contact Us</a>
+            <a class="footer__link" [class.footer__link_has-dot]="hasTermsDot" [routerLink]="termsLink">Terms & Conditions</a>
+        </div>
+    </footer>
+</ng-container>
+

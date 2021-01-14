@@ -64,7 +64,7 @@
         width: 135px;
         height: 39px;
         background: transparent url('../../../../assets/images/logo.jpg') center center no-repeat;
-        background-size: cover;
+        background-size: contain;
     }
 
     &__wrapper {
@@ -120,12 +120,25 @@
         }
 
         &-link {
+            position: relative;
+
             &,
             &:link,
             &:hover,
             &:focus,
             &:active {
                 text-decoration: none;
+            }
+
+            &_has-dot:after {
+                content: '';
+                position: absolute;
+                border-radius: 50%;
+                height: 6px;
+                width: 6px;
+                background-color: #ff0000;
+                top: 11px;
+                left: 43px;
             }
         }
     }

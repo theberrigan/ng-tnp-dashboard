@@ -1,3 +1,98 @@
 {
-    "lang": "English"
+    "faq": {
+        "items": {
+            "what_is_tapnpay": {
+                "q": "What is tapNpay?",
+                "a": "tapNpay is a service that allows pay by mail customers who travel on North Texas toll roads to pay for tolls through their cell phone bill."
+            },
+            "how_does_it_work": {
+                "q": "How does it work?",
+                "a": "Once you register your vehicle license plate, all your toll charges are invoiced and billed to your carrier account after review and acceptance by you."
+            },
+            "will_it_work_on_any_cell_phone": {
+                "q": "Will it work on any cell phone?",
+                "a": "It will work on smartphones and tablet devices."
+            },
+            "what_cell_phone_carriers_does_this_service_work_with": {
+                "q": "What cell phone carriers does this service work with?",
+                "a": "Verizon Wireless, Check back with us often, new carriers will be added in the future."
+            },
+            "what_is_the_advantage_to_using_tapnpay": {
+                "q": "What is the advantage to using tapNpay?",
+                "a": "You don’t need a credit card or bank account. You don’t have to have a toll tag.  And you won’t have to worry about getting late fees for toll road violations.  All you need is a subscription to a participating cell phone service."
+            },
+            "are_the_toll_road_fees_the_same": {
+                "q": "Are the toll road fees the same?",
+                "a": "Yes.  You pay the same rate as a pay-by-mail for North Texas toll roads."
+            },
+            "if_i_participate": {
+                "q": "If I participate in the “pilot program” to try out the service, what will my discount be?",
+                "a": "You will receive a 10% discount on tolls up to $100.  The maximum amount of the discount is $10.  Once you reach the total discounted amount, normal toll rates will resume."
+            },
+            "will_it_work_on_any": {
+                "q": "Will it work on any Toll road in Texas or nationwide?",
+                "a": "No. tapNpay is only available for the toll roads in the Dallas-Fort Worth area. It is not available in other metropolitan areas of Texas or nationally at this time."
+            },
+            "do_i_have_to_have_a_credit": {
+                "q": "Do I have to have a credit card to register/signup?",
+                "a": "No. All you need is a valid vehicle license plate and a participating cell phone account in good standing."
+            },
+            "do_i_need_to_have_a_texas_license_plate": {
+                "q": "Do I need to have a Texas license plate?",
+                "a": "No. It will work with any U.S. state license plate."
+            },
+            "is_this_a_type_of_toll_tag": {
+                "q": "Is this a type of toll tag?",
+                "a": "No. tapNpay is a payment service that does not require a toll tag, a credit card or a bank account to pay for your tolls."
+            },
+            "what_if_i_have_a_toll_tag_already": {
+                "q": "What if I have a toll tag already?",
+                "a": "If you currently have a toll tag, you are already paying the lowest rate available for your tolls. There is no reason to sign up for tapNpay."
+            },
+            "do_i_have_to_register": {
+                "q": "Do I have to register/sign up?",
+                "a": "Yes. The process is simple"
+            },
+            "how_do_i_register": {
+                "q": "How do I register or signup?",
+                "a": "By sms or texting your license plate number or Tolling Authority ZipCash Invoice number and answering a few simple questions"
+            },
+            "what_does_it_cost_to_register": {
+                "q": "What does it cost to register/signup?",
+                "a": "Nothing"
+            },
+            "what_if_i_use_a_pre_paid_phone_plan": {
+                "q": "What if I use a pre-paid phone plan?",
+                "a": "We currently do not support pre-pay cell phone account types."
+            },
+            "what_happens_if_i_sell_my_car": {
+                "q": "What happens if I sell my car or buy a new one?",
+                "a": "If you sell your existing vehicle and do not transfer the license plate from that vehicle to your new vehicle you will need to deactivate the license plate associated with that vehicle. You can do that by logging in to your account at tapNpay and deregistering your vehicle. If you buy a new vehicle and do not use the license plate from your former vehicle you will need to re-register the new vehicle when you get your new license plates."
+            },
+            "i_have_toll_violation_notices": {
+                "q": "I have toll violation notices.  Can I pay those with tapNpay",
+                "a": "Transactions that occurred prior to signing up for tapNpay must be settled under your current account with the toll agency. However all future tolls, 24 hours after registering, will be paid through the tapNpay service from then on."
+            },
+            "will_i_still_get_toll_invoices_in_the_mail": {
+                "q": "Will I still get toll invoices in the mail?",
+                "a": "You may still get invoices from the toll agency for any balances still owed for tolls prior to the start of your tapNpay account. You will get e-invoices from tapNpay while you are participating in the tapNpay system, provided you approve your e-invoices within the allotted timeframe."
+            },
+            "can_i_register_multiple_vehicles": {
+                "q": "Can I register multiple vehicles?",
+                "a": "Yes, you can register multiple vehicles with a single cell phone number, but you cannot register the same vehicle on more than one cell phone number."
+            },
+            "we_drive_multiple_vehicles": {
+                "q": "We drive multiple vehicles.  Can I have all those vehicles on the same account?",
+                "a": "Yes, all vehicles registered using the same cell phone number will be on the same tapNpay account"
+            },
+            "will_it_work_if_i_drive_a_motorcycle": {
+                "q": "Will it work if I drive a motorcycle?",
+                "a": "It will work with any vehicle except fleet vehicles. Fleet vehicles are groups of motor vehicles owned or leased by a business, government agency or other organization rather than by an individual or family. Typical examples are vehicles operated by car rental companies, taxicab companies, public utilities, public bus companies, and police departments."
+            },
+            "who_do_i_contact_for_help": {
+                "q": "Who do I contact for help with my account?",
+                "a": "Go to tapNpay.biz and click on the “Contact Us” feature. If it’s a question or a dispute about a charge, you can use tapNpay to dispute the charge."
+            }
+        }
+    }
 }

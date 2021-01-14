@@ -1,3 +1,98 @@
 {
-    "lang": "Spanish"
+    "faq": {
+        "items": {
+            "what_is_tapnpay": {
+                "q": "¿Qué es tapNpay?",
+                "a": "tapNpay es un servicio que permite a los clientes que pagan por correo y que viajan por las carreteras de peaje del norte de Texas pagar los peajes utilizando su factura de teléfono celular."
+            },
+            "how_does_it_work": {
+                "q": "¿Cómo funciona?",
+                "a": "Una vez que usted registre la matrícula de su vehículo, todos sus cargos de peaje se facturarán y se cobrarán a su cuenta con el operador después de que usted los revise y acepte."
+            },
+            "will_it_work_on_any_cell_phone": {
+                "q": "¿Funcionará en cualquier teléfono celular?",
+                "a": "Funcionará en teléfonos inteligentes y tablets."
+            },
+            "what_cell_phone_carriers_does_this_service_work_with": {
+                "q": "¿Con qué operadores de telefonía celular funciona este servicio?",
+                "a": "Actualmente con Verizon Wireless. Puede revisar a menudo, agregaremos nuevos operadores en el futuro."
+            },
+            "what_is_the_advantage_to_using_tapnpay": {
+                "q": "¿Cuál es la ventaja de usar tapNpay?",
+                "a": "No necesita una tarjeta de crédito o cuenta bancaria. No tiene que tener una etiqueta de peaje.   Y no tendrá que preocuparse de recibir citas por violar las carreteras de peaje.  Todo lo que necesita es suscribirse a un servicio de teléfono celular participante."
+            },
+            "are_the_toll_road_fees_the_same": {
+                "q": "¿Las tarifas de los peajes de las carreteras son todas iguales?",
+                "a": "Sí.  Usted paga la misma tarifa que un servicio de pago por correo para los peajes de las carreteras del norte de Texas."
+            },
+            "if_i_participate": {
+                "q": "Si participo en el “programa piloto” para probar el servicio, ¿cuál será mi descuento?",
+                "a": "Recibirá un 10% de descuento en los peajes hasta $100.  El monto máximo del descuento es de $10.  Cuando alcance la cantidad total descontada, se reanudarán las tarifas normales de peaje."
+            },
+            "will_it_work_on_any": {
+                "q": "¿Funcionará en cualquier carretera con peaje en Texas o en todo el país?",
+                "a": "No. tapNpay solo está disponible para las carreteras con peaje en el área de Dallas-Fort Worth. En este momento, no está disponible en otras áreas metropolitanas de Texas ni a nivel nacional."
+            },
+            "do_i_have_to_have_a_credit": {
+                "q": "¿Debo tener una tarjeta de crédito para registrarme?",
+                "a": "No.  Todo lo que necesita es una matrícula de vehículo válida y una cuenta de teléfono celular participante con buena reputación."
+            },
+            "do_i_need_to_have_a_texas_license_plate": {
+                "q": "¿Necesito tener una matrícula de Texas?",
+                "a": "No.  Funcionará con cualquier estado de los Estados Unidos."
+            },
+            "is_this_a_type_of_toll_tag": {
+                "q": "¿Es este un tipo de etiqueta de peaje?",
+                "a": "No. tapNpay es un servicio de pago con el que no necesita usar una etiqueta de peaje, una tarjeta de crédito o una cuenta bancaria para pagar sus peajes."
+            },
+            "what_if_i_have_a_toll_tag_already": {
+                "q": "¿Qué pasa si ya tengo una etiqueta de peaje?",
+                "a": "Si actualmente tiene una etiqueta de peaje, ya está pagando la tarifa más baja disponible para sus peajes. No hay razón para registrarse en tapNpay."
+            },
+            "do_i_have_to_register": {
+                "q": "¿Tengo que registrarme/suscribirme?",
+                "a": "Sí. El proceso es sencillo."
+            },
+            "how_do_i_register": {
+                "q": "¿Cómo me registro o suscribo?",
+                "a": "Enviando un SMS o un mensaje de texto con su número de matrícula o con el número de factura de pago por correo y respondiendo algunas preguntas simples."
+            },
+            "what_does_it_cost_to_register": {
+                "q": "¿Cuánto cuesta registrarse/suscribirse?",
+                "a": "Nada"
+            },
+            "what_if_i_use_a_pre_paid_phone_plan": {
+                "q": "¿Qué pasa si uso un plan telefónico prepago?",
+                "a": "Actualmente no admitimos los tipos de cuenta de teléfono celular prepago."
+            },
+            "what_happens_if_i_sell_my_car": {
+                "q": "¿Qué pasa si vendo mi carro o compro uno nuevo?",
+                "a": "Si vende su vehículo actual y no transfiere la matrícula de ese vehículo a su nuevo vehículo, deberá desactivar la matrícula asociada con ese vehículo. Puede hacerlo iniciando sesión en su cuenta en tapNpay y cancelando el registro de su vehículo. Si compra un vehículo nuevo y no utiliza la matrícula de su vehículo anterior, deberá volver a registrarlo cuando obtenga sus nuevas matrículas."
+            },
+            "i_have_toll_violation_notices": {
+                "q": "Tengo infracciones de peaje.  ¿Puedo pagarlas con tapNpay?",
+                "a": "Las transacciones que ocurrieron antes de registrarse en tapNpay se deben liquidar en su cuenta actual con la agencia de peaje. Sin embargo, todos los peajes futuros, a partir de las 24 horas después de registrarse, se pagarán a través del servicio tapNpay a partir de ese momento."
+            },
+            "will_i_still_get_toll_invoices_in_the_mail": {
+                "q": "¿Seguiré recibiendo las facturas de peaje por correo?",
+                "a": "Aún puede recibir facturas de la agencia de peaje por cualquier saldo pendiente de pago antes de registrar su cuenta en tapNpay. Recibirá facturas electrónicas de tapNpay mientras participa en el sistema de tapNpay, siempre que apruebe sus facturas electrónicas dentro del plazo asignado."
+            },
+            "can_i_register_multiple_vehicles": {
+                "q": "¿Puedo registrar varios vehículos?",
+                "a": "Sí, puede registrar varios vehículos con un solo número de teléfono celular, pero no puede registrar el mismo vehículo en más de un número de teléfono celular."
+            },
+            "we_drive_multiple_vehicles": {
+                "q": "Conducimos varios vehículos.  ¿Puedo tener todos esos vehículos en la misma cuenta?",
+                "a": "Sí, todos los vehículos registrados con el mismo número de teléfono celular estarán en la misma cuenta de tapNpay."
+            },
+            "will_it_work_if_i_drive_a_motorcycle": {
+                "q": "¿Funcionará si conduzco una motocicleta?",
+                "a": "Funcionará con cualquier vehículo excepto vehículos de flota. Los vehículos de flota son grupos de vehículos que son propiedad o arrendados por una empresa, agencia gubernamental u otra organización en lugar de un individuo o familia. Algunos ejemplos son los vehículos operados por empresas de alquiler de automóviles, empresas de taxis, servicios públicos, empresas de autobuses públicos y departamentos de policía."
+            },
+            "who_do_i_contact_for_help": {
+                "q": "¿A quién debo contactar para obtener ayuda con mi cuenta?",
+                "a": "Ingrese a tapNpay.biz y haga clic en “Contáctenos”. Si es una pregunta o una disputa sobre un cargo, puede usar tapNpay para disputar el cargo."
+            }
+        }
+    }
 }

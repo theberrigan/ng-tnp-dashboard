@@ -1,26 +1,33 @@
-import {ChangeDetectionStrategy, Component, OnInit, Renderer2} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit, Renderer2, ViewEncapsulation} from '@angular/core';
 import {forIn} from 'lodash';
 import {NavigationEnd, Router} from '@angular/router';
 import {DeviceService, ViewportBreakpoint} from '../../services/device.service';
 import {TitleService} from '../../services/title.service';
 import {Subject} from 'rxjs';
+import {TermsService, TermsSession} from '../../services/terms.service';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: [ './app.component.scss' ],
-    changeDetection: ChangeDetectionStrategy.Default
+    changeDetection: ChangeDetectionStrategy.Default,
+    encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit {
     public viewportBreakpoint : ViewportBreakpoint;
 
     public mobileNavSubject = new Subject();
 
+    hasTermsDot : boolean = false;
+
+    termsLink : string = '/terms';
+
     constructor (
         private renderer : Renderer2,
         private router : Router,
         private deviceService : DeviceService,
-        private titleService : TitleService
+        private titleService : TitleService,
+        private termsService : TermsService,
     ) {
         this.titleService.setRawTitle('tapNpay', false);
 
@@ -38,6 +45,9 @@ export class AppComponent implements OnInit {
                 this.viewportBreakpoint = message.breakpointChange.current;
             }
         });
+
+        this.setTermsState(this.termsService.getTermsSession());
+        this.termsService.onTermsSessionChange.subscribe(session => this.setTermsState(session));
     }
 
     public ngOnInit () {
@@ -74,6 +84,11 @@ export class AppComponent implements OnInit {
                 this.renderer.addClass(document.documentElement, `viewport_${ current }`);
             }
         });
+    }
+
+    setTermsState ({ isAcceptable, termsId } : TermsSession) {
+        this.termsLink = termsId === null ? '/terms' : `/terms/${ termsId }`;
+        this.hasTermsDot = isAcceptable;
     }
 
     public hideAppScreen () : void {

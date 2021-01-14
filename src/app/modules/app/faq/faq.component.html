@@ -1,1 +1,16 @@
-FAQ
+<h1 class="page-header">FAQ</h1>
+<ul class="faq__list">
+    <li class="faq__list-item" *ngFor="let key of items" [class.faq__list-item_active]="activeKey === key" (click)="switchItem(key)">
+        <div class="faq__list-item-q">
+            <div class="faq__list-item-q-text">
+                {{ ('faq.items.' + key + '.q') | translate }}
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="9" viewBox="0 0 14 9" class="faq__list-item-q-icon">
+                <path style="fill: currentColor;" d="M13.071,7.000 L11.657,8.414 L7.000,3.757 L2.343,8.414 L0.929,7.000 L5.586,2.343 L5.586,2.343 L7.000,0.929 L8.414,2.343 L8.414,2.343 L13.071,7.000 Z"></path>
+            </svg>
+        </div>
+        <div class="faq__list-item-a">
+            {{ ('faq.items.' + key + '.a') | translate }}
+        </div>
+    </li>
+</ul>

@@ -12,16 +12,45 @@
     background-color: #fff;
     box-shadow: 0 1px 0 0 #dde3eb;
     z-index: $z-index-app-bar;
+    color: #6f7174;
+    user-select: none;
 
     &__nav-trigger {
         height: 100%;
         width: 58px;
+        color: inherit;
         display: flex;
         flex-flow: row nowrap;
         align-items: center;
         justify-content: center;
-        color: #6f7174;
         background-color: transparent;
-        user-select: none;
+        flex-shrink: 0;
+        position: relative;
+
+        &_has-dot:after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            height: 6px;
+            width: 6px;
+            background-color: #ff0000;
+            top: 15px;
+            left: 39px;
+        }
+    }
+
+    &__title {
+        font-size: 16px;
+        line-height: 22px;
+        font-weight: $font-weight-semi-bold;
+        padding: 1px 12px 0;
+        flex: 1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &__controls {
+        flex-shrink: 0;
     }
 }

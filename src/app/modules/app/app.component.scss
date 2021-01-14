@@ -1,7 +1,99 @@
 @import '../../../assets/css/definitions';
 
-.mobile-page-content {
-    min-height: 100vh;
-    padding-top: $app-bar-height;
+$panel-height: 56px;
+$footer-height: 56px;
+
+.page-content {
+    width: 100%;
+
+    html.viewport_mobile &,
+    html.viewport_tablet & {
+        min-height: 100vh;
+        padding-top: $app-bar-height;
+    }
+
+    html.viewport_desktop & {
+        min-height: calc(100vh - #{ $footer-height });
+        padding-top: $panel-height;
+        max-width: $content-max-width;
+        margin: 0 auto;
+    }
+}
+
+.panel {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: $panel-height;
     background-color: #fff;
+    box-shadow: 0 1px 0 0 #dde3eb;
+    z-index: $z-index-panel;
+    color: #6f7174;
+    user-select: none;
+
+    &__inner {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        width: 100%;
+        max-width: $content-max-width;
+        height: 100%;
+        margin: 0 auto;
+    }
+
+    &__logo {
+        margin-top: -6px;
+        margin-right: auto;
+        width: 105px;
+        height: 30px;
+        background: transparent url('../../../assets/images/logo.jpg') center center no-repeat;
+        background-size: contain;
+    }
+}
+
+.footer {
+    display: block;
+    width: 100%;
+    height: $footer-height;
+    background-color: #fff;
+    box-shadow: 0 -1px 0 0 #dde3eb;
+
+    &__inner {
+        width: 100%;
+        max-width: $content-max-width;
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: $font-weight-medium;
+
+    }
+
+    &__copyright {
+
+    }
+
+    &__link {
+        margin-left: 20px;
+
+        &_has-dot {
+            position: relative;
+
+            &:after {
+                content: '';
+                position: absolute;
+                border-radius: 50%;
+                height: 5px;
+                width: 5px;
+                background-color: #ff0000;
+                top: 2px;
+                right: -6px;
+            }
+        }
+    }
 }

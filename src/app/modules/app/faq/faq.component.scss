@@ -1,1 +1,66 @@
 @import '../../../../assets/css/definitions';
+
+.faq {
+    display: block;
+    padding: 15px 0;
+
+    &__list {
+        width: 100%;
+        background-color: #fff;
+
+        &-item {
+            width: 100%;
+            border-top: 1px solid #DDE3EB;
+            background-color: #fff;
+
+            &:last-child {
+                border-bottom: 1px solid #DDE3EB;
+            }
+
+            &-q {
+                display: flex;
+                flex-flow: row nowrap;
+                align-items: center;
+                font-size: 16px;
+                line-height: 24px;
+                font-weight: 600;
+                color: #656e7d;
+                padding: 20px 20px;
+
+                &-icon {
+                    transform: rotateZ(180deg);
+                    width: 10px;
+                    flex-shrink: 0;
+                }
+
+                &-text {
+                    padding-right: 16px;
+                    margin-right: auto;
+                }
+            }
+
+            &-a {
+                display: none;
+                color: #7c828d;
+                font-size: 14px;
+                line-height: 21px;
+                padding: 0 20px 22px;
+                font-weight: 500;
+            }
+
+            &_active &-q {
+                &-icon {
+                    transform: rotateZ(0);
+                }
+            }
+
+            &_active &-a {
+                display: block;
+            }
+        }
+    }
+
+    html.viewport_desktop & {
+        padding-top: 35px;
+    }
+}

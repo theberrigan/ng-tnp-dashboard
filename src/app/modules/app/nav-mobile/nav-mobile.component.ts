@@ -11,6 +11,8 @@ import {Router} from '@angular/router';
 import {Subject, Subscription} from 'rxjs';
 import {defer} from '../../../lib/utils';
 import {LANGS, LangService} from '../../../services/lang.service';
+import {AppBarService} from '../../../services/app-bar.service';
+import {TermsService, TermsSession} from '../../../services/terms.service';
 
 type Layout = 'nav' | 'langs';
 
@@ -39,10 +41,15 @@ export class NavMobileComponent implements OnInit {
 
     currentLang : string = null;
 
+    hasTermsDot : boolean = false;
+
+    termsLink : string = '/terms';
+
     constructor (
         private renderer : Renderer2,
         private router : Router,
-        private langService : LangService
+        private langService : LangService,
+        private termsService : TermsService
     ) {
         this.currentLang = this.langService.getCurrentLangCode();
     }
@@ -59,9 +66,21 @@ export class NavMobileComponent implements OnInit {
         this.langService.onLangChange(() => {
             this.currentLang = this.langService.getCurrentLangCode();
         });
+
+        this.setTermsState(this.termsService.getTermsSession());
+        this.subs.push(this.termsService.onTermsSessionChange.subscribe(session => this.setTermsState(session)));
+    }
+
+    setTermsState ({ isAcceptable, termsId } : TermsSession) {
+        this.termsLink = termsId === null ? '/terms' : `/terms/${ termsId }`;
+        this.hasTermsDot = isAcceptable;
     }
 
     onOverlayClick () {
+        this.isActive = false;
+    }
+
+    onClose () {
         this.isActive = false;
     }
 
