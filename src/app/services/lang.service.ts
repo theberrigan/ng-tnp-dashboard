@@ -44,5 +44,11 @@ export class LangService {
         return this.translateService.get(key, interpolateParams);
     }
 
+    public getCurrentLangCode () : string {
+        return this.translateService.currentLang;
+    }
 
+    public onLangChange (callback) {
+        return this.translateService.onLangChange.subscribe(callback);
+    }
 }

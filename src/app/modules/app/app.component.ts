@@ -1,15 +1,21 @@
 import {ChangeDetectionStrategy, Component, OnInit, Renderer2} from '@angular/core';
 import {forIn} from 'lodash';
 import {NavigationEnd, Router} from '@angular/router';
-import {DeviceService} from '../../services/device.service';
+import {DeviceService, ViewportBreakpoint} from '../../services/device.service';
 import {TitleService} from '../../services/title.service';
+import {Subject} from 'rxjs';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
+    styleUrls: [ './app.component.scss' ],
     changeDetection: ChangeDetectionStrategy.Default
 })
 export class AppComponent implements OnInit {
+    public viewportBreakpoint : ViewportBreakpoint;
+
+    public mobileNavSubject = new Subject();
+
     constructor (
         private renderer : Renderer2,
         private router : Router,
@@ -23,6 +29,13 @@ export class AppComponent implements OnInit {
             if (e instanceof NavigationEnd) {
                 routerSub.unsubscribe();
                 this.hideAppScreen();
+            }
+        });
+
+        this.viewportBreakpoint = this.deviceService.viewportBreakpoint;
+        this.deviceService.onResize.subscribe((message) => {
+            if (message.breakpointChange) {
+                this.viewportBreakpoint = message.breakpointChange.current;
             }
         });
     }

@@ -1,0 +1,27 @@
+@import '../../../../assets/css/definitions';
+
+.app-bar {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: $app-bar-height;
+    background-color: #fff;
+    box-shadow: 0 1px 0 0 #dde3eb;
+    z-index: $z-index-app-bar;
+
+    &__nav-trigger {
+        height: 100%;
+        width: 58px;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: center;
+        color: #6f7174;
+        background-color: transparent;
+        user-select: none;
+    }
+}

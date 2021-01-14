@@ -16,6 +16,8 @@ import {TranslateMessageFormatCompiler} from 'ngx-translate-messageformat-compil
 import {TermsComponent} from './terms/terms.component';
 import {FaqComponent} from './faq/faq.component';
 import {ContactUsComponent} from './contact-us/contact-us.component';
+import {NavMobileComponent} from './nav-mobile/nav-mobile.component';
+import {AppBarComponent} from './app-bar/app-bar.component';
 
 export class LocaleHttpLoader implements TranslateLoader {
     private readonly hashes = LOCALES_HASHES;
@@ -54,7 +56,9 @@ export function initApp (
         NotFoundComponent,
         TermsComponent,
         FaqComponent,
-        ContactUsComponent
+        ContactUsComponent,
+        NavMobileComponent,
+        AppBarComponent
     ],
     imports: [
         BrowserAnimationsModule,
@@ -77,7 +81,9 @@ export function initApp (
     exports: [
         TermsComponent,
         FaqComponent,
-        ContactUsComponent
+        ContactUsComponent,
+        NavMobileComponent,
+        AppBarComponent
     ],
     providers: [
         {

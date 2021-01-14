@@ -209,6 +209,7 @@ const ENDPOINTS : any = {
         'export.translator':               '/rest/v{endpointVersion}/cat/export/translator',
         'cats.getSmartcat':                '/rest/v{endpointVersion}/cats/smartcat',
         'cats.updateSmartcat':             '/rest/v{endpointVersion}/cats/smartcat',
+        // --------------------------------------------
     },
 
     // + substitution of api host

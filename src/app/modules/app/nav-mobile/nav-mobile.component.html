@@ -1,0 +1,70 @@
+<div class="nav-mobile__overlay" (click)="onOverlayClick()"></div>
+<div class="nav-mobile__drawer" [ngSwitch]="activeLayout">
+    <div class="nav-mobile__layout nav-mobile__layout_nav" *ngSwitchCase="'nav'">
+        <div class="nav-mobile__logo">
+            <!--<img src={ require('../../../../assets/images/logo.jpg') } alt="tapNpay logo"/>-->
+        </div>
+        <nav class="nav-mobile__wrapper">
+            <ul class="nav-mobile__list">
+                <li>
+                    <button class="nav-mobile__list-button" (click)="onSwitchLayout('langs')">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" class="nav-mobile__list-link-icon">
+                            <path style="fill: currentColor;" d="M29.36,15A12,12,0,0,1,8.87,23.49l1.42-1.42A10,10,0,1,0,7.36,15v1.59l3.28-3.3,1.43,1.42-5.71,5.7L.64,14.71l1.43-1.42,3.29,3.3V15a12,12,0,1,1,24,0Zm-11-.4V8.74h-2v7l6.06,3.5,1-1.74Z"></path>
+                        </svg>
+                        <span class="nav-mobile__list-link-text">Language</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" viewBox="0 0 6 10">
+                            <path style="fill: currentColor;" d="M1.318,10.008 L-0.007,8.609 L3.372,5.000 L-0.007,1.391 L1.318,-0.008 L6.008,5.000 L1.318,10.008 Z"></path>
+                        </svg>
+                    </button>
+                </li>
+            </ul>
+            <div class="nav-mobile__sep"></div>
+            <ul class="nav-mobile__list">
+                <li>
+                    <a routerLink="/faq" class="nav-mobile__list-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" class="nav-mobile__list-link-icon">
+                            <path style="fill: currentColor;" d="M29.36,15A12,12,0,0,1,8.87,23.49l1.42-1.42A10,10,0,1,0,7.36,15v1.59l3.28-3.3,1.43,1.42-5.71,5.7L.64,14.71l1.43-1.42,3.29,3.3V15a12,12,0,1,1,24,0Zm-11-.4V8.74h-2v7l6.06,3.5,1-1.74Z"></path>
+                        </svg>
+                        <span class="nav-mobile__list-link-text">FAQ</span>
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/contact-us" class="nav-mobile__list-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" class="nav-mobile__list-link-icon">
+                            <path style="fill: currentColor;" d="M29.36,15A12,12,0,0,1,8.87,23.49l1.42-1.42A10,10,0,1,0,7.36,15v1.59l3.28-3.3,1.43,1.42-5.71,5.7L.64,14.71l1.43-1.42,3.29,3.3V15a12,12,0,1,1,24,0Zm-11-.4V8.74h-2v7l6.06,3.5,1-1.74Z"></path>
+                        </svg>
+                        <span class="nav-mobile__list-link-text">Contact Us</span>
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/terms" class="nav-mobile__list-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" class="nav-mobile__list-link-icon">
+                            <path style="fill: currentColor;" d="M29.36,15A12,12,0,0,1,8.87,23.49l1.42-1.42A10,10,0,1,0,7.36,15v1.59l3.28-3.3,1.43,1.42-5.71,5.7L.64,14.71l1.43-1.42,3.29,3.3V15a12,12,0,1,1,24,0Zm-11-.4V8.74h-2v7l6.06,3.5,1-1.74Z"></path>
+                        </svg>
+                        <span class="nav-mobile__list-link-text">Terms & Conditions</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="nav-mobile__layout nav-mobile__layout_langs" *ngSwitchCase="'langs'">
+        <div class="nav-mobile__langs-header" (click)="onSwitchLayout('nav')">
+            <svg xmlns="http://www.w3.org/2000/svg" width="19px" height="18px" viewBox="0 0 19 18" class="nav-mobile__langs-header-icon">
+                <path style="fill: currentColor;" d="M19.000,10.000 L3.414,10.000 L9.950,16.536 L8.536,17.950 L0.050,9.464 L0.515,9.000 L0.050,8.536 L8.536,0.050 L9.950,1.464 L3.414,8.000 L19.000,8.000 L19.000,10.000 Z"></path>
+            </svg>
+            <div class="nav-mobile__langs-header-text">Change Language</div>
+        </div>
+        <ul class="nav-mobile__list nav-mobile__list_langs">
+            <li *ngFor="let lang of langs">
+                <button class="nav-mobile__list-button" (click)="onSwitchLang(lang.code)">
+                    <ng-container *ngIf="currentLang === lang.code">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" class="nav-mobile__list-link-icon">
+                            <path style="fill: currentColor;" d="M29.36,15A12,12,0,0,1,8.87,23.49l1.42-1.42A10,10,0,1,0,7.36,15v1.59l3.28-3.3,1.43,1.42-5.71,5.7L.64,14.71l1.43-1.42,3.29,3.3V15a12,12,0,1,1,24,0Zm-11-.4V8.74h-2v7l6.06,3.5,1-1.74Z"></path>
+                        </svg>
+                    </ng-container>
+                    <span class="nav-mobile__list-link-text">{{ lang.name }}</span>
+                </button>
+            </li>
+        </ul>
+    </div>
+</div>
