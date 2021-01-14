@@ -1,0 +1,10 @@
+// NOTE: order is important
+@import '../fonts/Montserrat/font.css';
+@import './definitions.scss';  // variables
+@import './animations.scss';
+@import './mixins.scss';
+@import './reset.scss';
+@import './common.scss';  // common styles & classes
+@import './buttons.scss';
+@import './inputs.scss';
+@import './select.scss';

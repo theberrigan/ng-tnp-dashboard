@@ -1,0 +1,22 @@
+{
+    "distPath": "./dist/stage/",
+    "region": "<SET_REGION_HERE>",
+    "bucket": "<SET_BUCKET_HERE>",
+    "gzip": true,
+    "gzipExtensions": null,
+    "cache": null,
+    "preventUpdates": false,
+    "immutable": false,
+    "noCache": false,
+    "cacheControl": null,
+    "etag": null,
+    "signatureVersion": null,
+    "filePrefix": null,
+    "profile": null,
+    "private": false,
+    "ext": null,
+    "deleteRemoved": false,
+    "index": null,
+    "distId": null,
+    "invalidate": []
+}
