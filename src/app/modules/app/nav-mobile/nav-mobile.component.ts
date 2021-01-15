@@ -68,7 +68,9 @@ export class NavMobileComponent implements OnInit {
         });
 
         this.setTermsState(this.termsService.getTermsSession());
-        this.subs.push(this.termsService.onTermsSessionChange.subscribe(session => this.setTermsState(session)));
+        this.subs.push(this.termsService.onTermsSessionChange.subscribe(session => {
+            defer(() => this.setTermsState(session));
+        }));
     }
 
     setTermsState ({ isAcceptable, termsId } : TermsSession) {

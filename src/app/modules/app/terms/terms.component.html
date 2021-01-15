@@ -1,13 +1,20 @@
 <ng-container [ngSwitch]="isReady">
-    <div *ngSwitchCase="false">Loading...</div>
+    <div class="terms__loader" *ngSwitchCase="false">
+        <loader></loader>
+    </div>
     <ng-container *ngSwitchCase="true">
         <div class="terms__content" [innerHTML]="content" #contentEl [style.paddingBottom.px]="contentBottomPadding"></div>
-        <div class="terms-panel" *ngIf="isAcceptable" #panelEl [style.bottom.px]="panelBottom">
-            <label class="terms-panel__checkbox">
-                <input type="checkbox"/>
-                <span>I accept Terms & Conditions and Privacy policy</span>
-            </label>
-            <button type="button" class="terms-panel__button">Ok</button>
+        <div class="terms-panel" *ngIf="isAcceptable" #panelEl [style.bottom.px]="panelBottom" [class.terms-panel_sticky]="isPanelSticky">
+            <checkbox [(ngModel)]="isChecked" [disabled]="isSubmitting">I accept Terms & Conditions and Privacy policy</checkbox>
+            <div class="terms-panel__button">
+                <button type="button" class="button button_blue button_regular"
+                    [isDisabled]="!isChecked || isSubmitting"
+                    [isProgress]="isSubmitting"
+                    (click)="onSubmit()"
+                >
+                    <span class="button__caption">Ok</span>
+                </button>
+            </div>
         </div>
     </ng-container>
 </ng-container>

@@ -109,7 +109,6 @@ const ENDPOINTS : any = {
         'test.createTask':            '/rest/v{endpointVersion}/test/create-task',
         'terms.getAccepted':          '/rest/v{endpointVersion}/terms',
         'terms.getEligible':          '/rest/v{endpointVersion}/terms/eligible',
-        'terms.accept':               '/rest/v{endpointVersion}/terms/{termsId}',
         'notifications.get':          '/rest/v{endpointVersion}/notifications/top/{count}',
         'notifications.markAsViewed': '/rest/v{endpointVersion}/notifications/displayed',
         'tasks.get':                  '/rest/v{endpointVersion}/tasks',
@@ -217,6 +216,7 @@ const ENDPOINTS : any = {
     //   access token: no at all
     unauthorized: {
         'terms.getPublic': '/rest/v{endpointVersion}/terms/unauthenticated',
+        'terms.accept':    '/terms/accept'
     },
 
     // - substitution of api host

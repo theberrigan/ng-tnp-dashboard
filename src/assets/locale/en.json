@@ -94,5 +94,11 @@
                 "a": "Go to tapNpay.biz and click on the “Contact Us” feature. If it’s a question or a dispute about a charge, you can use tapNpay to dispute the charge."
             }
         }
+    },
+    "terms": {
+        "accept": {
+            "ok": "Thank you! Terms are accepted",
+            "error": "An error occurred while accepting terms"
+        }
     }
 }

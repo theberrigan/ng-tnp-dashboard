@@ -134,7 +134,26 @@ export class TermsService {
     }
 
     acceptTerms (termsId : string) {
-        window.localStorage.removeItem('termsSession');
-        this.setTermsSession(null);
+        return this.http.post('endpoint://terms.accept', {
+            body: {
+                phone: termsId,
+                accepted: true
+            }
+        }).pipe(
+            take(1),
+            map(response => {
+                if (response.status === 'OK') {
+                    window.localStorage.removeItem('termsSession');
+                    this.setTermsSession(null);
+                    return true;
+                }
+
+                return false;
+            }),
+            catchError(error => {
+                console.warn('acceptTerms error:', error);
+                return throwError('error');
+            })
+        );
     }
 }

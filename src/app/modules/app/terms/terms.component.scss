@@ -3,6 +3,10 @@
 .terms {
     display: block;
 
+    &__loader {
+        padding-top: 100px;
+    }
+
     &__content {
         color: #59606b;
         font-size: 14px;
@@ -132,45 +136,15 @@
         box-shadow: 0 -1px 0 0 #dde3eb;
         padding: 15px 8px 8px;
 
-        &__button {
-            display: block;
-            cursor: pointer;
-            background-color: #4875e7;
-            color: #fff;
-            font-size: 14px;
-            line-height: 20px;
-            font-weight: 600;
-            white-space: nowrap;
-            user-select: none;
-            border-radius: 6px;
-            text-align: center;
-            width: 100%;
-            padding: 9px 12px;
-
-            margin-top: 15px;
-
-            &[disabled] {
-                pointer-events: none;
-                cursor: default;
-                opacity: 0.5;
-            }
+        &_sticky {
+            border-radius: 0 0 10px 10px;
         }
 
-        &__checkbox {
-            display: flex;
-            flex-flow: row nowrap;
-            align-items: center;
-            justify-content: flex-start;
+        &__button {
+            margin-top: 15px;
 
-            > input {
-                width: 16px;
-                height: 16px;
-            }
-
-            > span {
-                font-size: 14px;
-                font-weight: 500;
-                margin-left: 8px;
+            .button {
+                width: 100%;
             }
         }
     }
@@ -180,17 +154,22 @@
 
         &__content {
             background-color: #fff;
-            border-radius: 5px;
-            border: 1px solid #dde3eb;
+            border-radius: 10px;
             padding: 60px 40px;
+            box-shadow: 0 1px 3px 0 rgba(14, 14, 14, 0.15);
         }
 
         &-panel {
             max-width: $content-max-width;
             left: 50%;
             transform: translateX(-50%);
-            border: 1px solid #dde3eb;
+            border-top: 1px solid #dde3eb;
             box-shadow: none;
+            padding: 20px;
+
+            &__button {
+                margin-top: 18px;
+            }
         }
     }
 }

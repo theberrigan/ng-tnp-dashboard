@@ -9,6 +9,6 @@ export class UserService {
     }
 
     getCurrentLangCode () {
-        return 'en';
+        return window.localStorage.getItem('lang') || 'en';
     }
 }

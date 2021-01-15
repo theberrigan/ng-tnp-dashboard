@@ -8,6 +8,7 @@ import {
     ViewEncapsulation
 } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
+import { Location} from '@angular/common';
 import {TitleService} from '../../../services/title.service';
 import {LangService} from '../../../services/lang.service';
 import {fromEvent, Subscription, zip} from 'rxjs';
@@ -16,6 +17,7 @@ import {SafeHtml} from '@angular/platform-browser';
 import {AppBarService} from '../../../services/app-bar.service';
 import {DeviceService, ViewportBreakpoint} from '../../../services/device.service';
 import {defer} from '../../../lib/utils';
+import {ToastService} from '../../../services/toast.service';
 
 @Component({
     selector: 'terms',
@@ -50,15 +52,23 @@ export class TermsComponent implements OnInit, OnDestroy {
 
     contentBottomPadding : number = 0;
 
+    isPanelSticky : boolean = false;
+
+    isChecked : boolean = false;
+
+    isSubmitting : boolean = false;
+
     constructor (
         private renderer : Renderer2,
         private router : Router,
         private route : ActivatedRoute,
+        private location : Location,
         private titleService : TitleService,
         private langService : LangService,
         private termsService : TermsService,
         private appBarService : AppBarService,
         private deviceService : DeviceService,
+        private toastService : ToastService,
     ) {
         this.viewportBreakpoint = this.deviceService.viewportBreakpoint;
         window.scroll(0, 0);
@@ -107,7 +117,7 @@ export class TermsComponent implements OnInit, OnDestroy {
                 this.viewportBreakpoint = this.deviceService.viewportBreakpoint;
                 defer(() => this.redraw());
             }
-        })
+        });
     }
 
     public ngOnDestroy () {
@@ -132,5 +142,38 @@ export class TermsComponent implements OnInit, OnDestroy {
 
         this.panelBottom = Math.max(0, window.innerHeight - Math.round(this.contentEl.nativeElement.getBoundingClientRect().bottom));
         this.contentBottomPadding = Math.round(this.panelEl.nativeElement.getBoundingClientRect().height) + 30;
+        this.isPanelSticky = this.panelBottom > 1;
+    }
+
+    public onSubmit () {
+        if (!this.isChecked || !this.termsId) {
+            return;
+        }
+
+        this.isSubmitting = true;
+
+        const onDone = isOk => {
+            if (isOk) {
+                this.location.replaceState('/terms');
+
+                this.toastService.create({
+                    message: [ 'terms.accept.ok' ],
+                    timeout: 6000
+                });
+            } else {
+                this.toastService.create({
+                    message: [ 'terms.accept.error' ],
+                    timeout: 7000
+                });
+            }
+
+            this.isSubmitting = false;
+        };
+
+        // TEST-PH-7755026
+        this.subs.push(this.termsService.acceptTerms(this.termsId).subscribe(
+            isOk => onDone(isOk),
+            () => onDone(false)
+        ));
     }
 }

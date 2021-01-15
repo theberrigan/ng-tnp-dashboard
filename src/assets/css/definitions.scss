@@ -2,7 +2,7 @@ $color-link-primary: #5388de;
 $color-primary-green: #41a741;
 $color-primary-red: #e64f4f;
 $color-primary-orange: #f7944d;
-$color-primary-blue: #5B7CD2;
+$color-primary-blue: #4875e7;
 $color-checkbox-label: #8e9194;
 $color-empty-message: #88929c;
 $color-empty-message-error: #ce6666;
@@ -18,7 +18,7 @@ $color-input-error-borders: #e67070;
 $color-input-error-background: #fff4f4;
 
 $control-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.06);
-$control-primary-radius: 3px;
+$control-primary-radius: 6px;
 $control-height-regular: 34px;  // TODO: add medium, large; Add to buttons
 $control-height-large: 40px;
 $control-border-size: 1px;  // TODO: add to buttons
@@ -34,6 +34,7 @@ $font-weight-black: 900;
 $app-bar-height: 56px;
 $content-max-width: 1000px;
 
-$z-index-app-bar: 5000;
-$z-index-panel: 5000;
-$z-index-mobile-nav: 7000;
+$z-index-app-bar:      5000;
+$z-index-panel:        5000;
+$z-index-toasts:       6000;
+$z-index-mobile-nav:   7000;

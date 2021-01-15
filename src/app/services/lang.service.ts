@@ -29,6 +29,7 @@ export class LangService {
     }
 
     public use (code : string) : Observable<any> {
+        window.localStorage.setItem('lang', code);
         return this.translateService.use(code);
     }
 
