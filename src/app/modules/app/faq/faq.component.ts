@@ -62,7 +62,7 @@ export class FaqComponent implements OnInit {
 
     public ngOnInit () {
         this.titleService.setTitle('faq.page_title');
-        this.titleService.setHeader('faq.page_header');
+        this.titleService.setHeader([ 'faq.page_header' ]);
     }
 
     public switchItem (key : string) {

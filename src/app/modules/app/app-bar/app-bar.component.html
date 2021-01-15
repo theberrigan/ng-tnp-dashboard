@@ -3,6 +3,6 @@
         <path style="fill: currentColor;" d="M0,13 L0,13 L18,13 L18,15 L0,15 ZM0,8 L18,8 L18,10 L0,10 L0,8 ZM0,3 L18,3 L18,5 L0,5 L0,3 Z"></path>
     </svg>
 </button>
-<div class="app-bar__title" [innerHTML]="title"></div>
+<div class="app-bar__title" [innerHTML]="isHeaderString ? header : (header[0] | translate : header[1])"></div>
 <!--<div class="app-bar__controls"></div>-->
 

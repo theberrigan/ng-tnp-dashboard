@@ -74,7 +74,7 @@ export class TermsComponent implements OnInit, OnDestroy {
 
     public ngOnInit () {
         this.titleService.setTitle('terms.page_title');
-        this.titleService.setHeader('terms.page_header');
+        this.titleService.setHeader([ 'terms.page_header' ]);
 
         this.termsId = this.route.snapshot.params['id'] || null;
         this.isReady = false;

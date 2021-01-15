@@ -7,9 +7,9 @@ import {Subject} from 'rxjs';
     providedIn: 'root'
 })
 export class TitleService {
-    lastHeader : string = '&nbsp;';
+    lastHeader : string | any[] = '&nbsp;';
 
-    onHeaderChange = new Subject<string>();
+    onHeaderChange = new Subject<string | any[]>();
 
     constructor (
         private title : Title,
@@ -26,16 +26,18 @@ export class TitleService {
             .subscribe(title => this.title.setTitle(title + (concatTNP ? ' | tapNpay' : '')));
     }
 
-    public setRawHeader (header : string) : void {
-        this.lastHeader = (header || '&nbsp;').trim();
+
+    public setHeader (header : string | any[]) : void {
+        this.lastHeader = Array.isArray(header) ? header : (header || '&nbsp;');
         this.onHeaderChange.next(this.lastHeader);
     }
 
+    /*
     public setHeader (headerKey : string, headerData? : any) : void {
         this.langService
             .translateAsync(headerKey, headerData)
             .subscribe(header => this.setRawHeader(header));
-    }
+    }*/
 
     public getLastHeader () {
         return this.lastHeader;

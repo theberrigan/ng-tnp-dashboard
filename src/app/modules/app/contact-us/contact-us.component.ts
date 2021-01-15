@@ -35,7 +35,7 @@ export class ContactUsComponent implements OnInit {
 
     public ngOnInit () {
         this.titleService.setTitle('contact_us.page_title');
-        this.titleService.setHeader('contact_us.page_header');
+        this.titleService.setHeader([ 'contact_us.page_header' ]);
     }
 
     validate () {

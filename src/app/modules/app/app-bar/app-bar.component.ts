@@ -29,7 +29,8 @@ export class AppBarComponent implements OnInit, OnDestroy {
 
     subs : Subscription[] = [];
 
-    title : string = '&nbsp;';
+    header : string | any[] = '&nbsp;';
+    isHeaderString : boolean = true;
 
     hasTermsDot : boolean = false;
 
@@ -41,11 +42,11 @@ export class AppBarComponent implements OnInit, OnDestroy {
     ) {}
 
     public ngOnInit () {
-        this.title = this.titleService.getLastHeader();
+        this.setHeader(this.titleService.getLastHeader());
         this.hasTermsDot = this.termsService.hasTermsSession();
 
         this.subs.push(this.titleService.onHeaderChange.subscribe(title => {
-            defer(() => this.title = title);
+            defer(() => this.setHeader(title));
         }));
 
         this.subs.push(this.termsService.onTermsSessionChange.subscribe(({ isAcceptable })  => {
@@ -59,5 +60,10 @@ export class AppBarComponent implements OnInit, OnDestroy {
 
     onTriggerClick () {
         this.navSubject.next();
+    }
+
+    setHeader (header : string | any[]) {
+        this.header = header;
+        this.isHeaderString = typeof header === 'string';
     }
 }
