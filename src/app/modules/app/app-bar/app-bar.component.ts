@@ -9,9 +9,9 @@ import {
 } from '@angular/core';
 import {Router} from '@angular/router';
 import {Subject, Subscription} from 'rxjs';
-import {AppBarService} from '../../../services/app-bar.service';
 import {TermsService} from '../../../services/terms.service';
 import {defer} from '../../../lib/utils';
+import {TitleService} from '../../../services/title.service';
 
 @Component({
     selector: 'app-bar',
@@ -36,15 +36,15 @@ export class AppBarComponent implements OnInit, OnDestroy {
     constructor (
         private renderer : Renderer2,
         private router : Router,
-        private appBarService : AppBarService,
+        private titleService : TitleService,
         private termsService : TermsService
     ) {}
 
     public ngOnInit () {
-        this.title = this.appBarService.getLastTitle();
+        this.title = this.titleService.getLastHeader();
         this.hasTermsDot = this.termsService.hasTermsSession();
 
-        this.subs.push(this.appBarService.onTitleChange.subscribe(title => {
+        this.subs.push(this.titleService.onHeaderChange.subscribe(title => {
             defer(() => this.title = title);
         }));
 

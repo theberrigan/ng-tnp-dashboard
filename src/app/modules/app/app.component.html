@@ -6,6 +6,31 @@
     <div class="panel">
         <div class="panel__inner">
             <div class="panel__logo"></div>
+            <nav class="nav">
+                <a class="nav__link" routerLink="/faq">{{ 'nav.items.faq' | translate }}</a>
+                <a class="nav__link" routerLink="/contact-us">{{ 'nav.items.contact_us' | translate }}</a>
+                <a class="nav__link" [class.nav__link_has-dot]="hasTermsDot" [routerLink]="termsLink">{{ 'nav.items.terms' | translate }}</a>
+            </nav>
+            <div class="panel__lang">
+                <button type="button" class="panel__lang-trigger" (click)="onLangTriggerClick($event)">
+                    <span class="panel__lang-trigger-text">{{ currentLang.name }}</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" class="panel__lang-trigger-arrow">
+                        <path style="fill: currentColor;" d="M6,7.22,1.29,2.51A1,1,0,0,1,2.71,1.1L6,4.39,9.29,1.1a1,1,0,0,1,1.44,1.39l0,0Z"></path>
+                    </svg>
+                </button>
+                <div class="panel__lang-menu" (click)="onLangMenuClick($event)" *ngIf="isLangMenuActive">
+                    <button type="button" class="panel__lang-menu-item"
+                        [class.panel__lang-menu-item_active]="lang.code === currentLang.code"
+                        *ngFor="let lang of langs"
+                        (click)="onLangItemClick(lang, $event)"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14px" height="11px" viewBox="0 0 14 11" class="panel__lang-menu-item-mark">
+                            <path fill="currentColor" d="M5,10.4L0.3,5.7c-0.4-0.4-0.4-1,0-1.4s1-0.4,1.4,0L5,7.6l7.3-7.3c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4L5,10.4z"></path>
+                        </svg>
+                        <span class="panel__lang-menu-item-text">{{ lang.name }}</span>
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 </ng-container>
@@ -18,9 +43,6 @@
     <footer class="footer">
         <div class="footer__inner">
             <span>© 2021 TAPNPAY</span>
-            <a class="footer__link" routerLink="/faq">FAQ</a>
-            <a class="footer__link" routerLink="/contact-us">Contact Us</a>
-            <a class="footer__link" [class.footer__link_has-dot]="hasTermsDot" [routerLink]="termsLink">Terms & Conditions</a>
         </div>
     </footer>
 </ng-container>

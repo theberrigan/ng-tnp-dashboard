@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component, OnInit, Renderer2, ViewEncapsulation} from '@angular/core';
 import {Router} from '@angular/router';
 import {TitleService} from '../../../services/title.service';
-import {AppBarService} from '../../../services/app-bar.service';
+import {DeviceService, ViewportBreakpoint} from '../../../services/device.service';
 
 @Component({
     selector: 'faq',
@@ -14,6 +14,8 @@ import {AppBarService} from '../../../services/app-bar.service';
     }
 })
 export class FaqComponent implements OnInit {
+    viewportBreakpoint : ViewportBreakpoint;
+
     readonly items = [
         'what_is_tapnpay',
         'how_does_it_work',
@@ -46,14 +48,21 @@ export class FaqComponent implements OnInit {
         private renderer : Renderer2,
         private router : Router,
         private titleService : TitleService,
-        private appBarService : AppBarService,
+        private deviceService : DeviceService,
     ) {
         window.scroll(0, 0);
+
+        this.viewportBreakpoint = this.deviceService.viewportBreakpoint;
+        this.deviceService.onResize.subscribe((message) => {
+            if (message.breakpointChange) {
+                this.viewportBreakpoint = message.breakpointChange.current;
+            }
+        });
     }
 
     public ngOnInit () {
-        this.titleService.setRawTitle('FAQ', false);
-        this.appBarService.setTitle('FAQ');
+        this.titleService.setTitle('faq.page_title');
+        this.titleService.setHeader('faq.page_header');
     }
 
     public switchItem (key : string) {

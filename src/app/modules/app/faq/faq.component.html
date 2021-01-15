@@ -1,16 +1,33 @@
-<h1 class="page-header">FAQ</h1>
-<ul class="faq__list">
-    <li class="faq__list-item" *ngFor="let key of items" [class.faq__list-item_active]="activeKey === key" (click)="switchItem(key)">
-        <div class="faq__list-item-q">
-            <div class="faq__list-item-q-text">
-                {{ ('faq.items.' + key + '.q') | translate }}
+<h1 class="page-header" [innerHTML]="'faq.page_header' | translate"></h1>
+<ng-container [ngSwitch]="viewportBreakpoint">
+    <ul class="faq__list" *ngSwitchCase="'desktop'">
+        <li class="faq__list-item" *ngFor="let key of items" [class.faq__list-item_active]="activeKey === key" (click)="switchItem(key)">
+            <span class="faq__list-item-header">
+                <svg xmlns="http://www.w3.org/2000/svg" width="23px" height="23px" viewBox="0 0 23 23" class="faq__list-item-header-plus">
+                    <path style="fill: currentColor;" d="M21.500,13.000 L13.000,13.000 L13.000,21.500 C13.000,22.328 12.328,23.000 11.500,23.000 C10.672,23.000 10.000,22.328 10.000,21.500 L10.000,13.000 L1.500,13.000 C0.672,13.000 -0.000,12.328 -0.000,11.500 C-0.000,10.672 0.672,10.000 1.500,10.000 L10.000,10.000 L10.000,1.500 C10.000,0.672 10.672,-0.000 11.500,-0.000 C12.328,-0.000 13.000,0.672 13.000,1.500 L13.000,10.000 L21.500,10.000 C22.328,10.000 23.000,10.672 23.000,11.500 C23.000,12.328 22.328,13.000 21.500,13.000 Z"></path>
+                </svg>
+                <span class="faq__list-item-header-text">
+                    {{ ('faq.items.' + key + '.q') | translate }}
+                </span>
+            </span>
+            <span class="faq__list-item-answer">
+                {{ ('faq.items.' + key + '.a') | translate }}
+            </span>
+        </li>
+    </ul>
+    <ul class="faq__mobile-list" *ngSwitchDefault>
+        <li class="faq__mobile-list-item" *ngFor="let key of items" [class.faq__mobile-list-item_active]="activeKey === key" (click)="switchItem(key)">
+            <div class="faq__mobile-list-item-q">
+                <div class="faq__mobile-list-item-q-text">
+                    {{ ('faq.items.' + key + '.q') | translate }}
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="9" viewBox="0 0 14 9" class="faq__mobile-list-item-q-icon">
+                    <path style="fill: currentColor;" d="M13.071,7.000 L11.657,8.414 L7.000,3.757 L2.343,8.414 L0.929,7.000 L5.586,2.343 L5.586,2.343 L7.000,0.929 L8.414,2.343 L8.414,2.343 L13.071,7.000 Z"></path>
+                </svg>
             </div>
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="9" viewBox="0 0 14 9" class="faq__list-item-q-icon">
-                <path style="fill: currentColor;" d="M13.071,7.000 L11.657,8.414 L7.000,3.757 L2.343,8.414 L0.929,7.000 L5.586,2.343 L5.586,2.343 L7.000,0.929 L8.414,2.343 L8.414,2.343 L13.071,7.000 Z"></path>
-            </svg>
-        </div>
-        <div class="faq__list-item-a">
-            {{ ('faq.items.' + key + '.a') | translate }}
-        </div>
-    </li>
-</ul>
+            <div class="faq__mobile-list-item-a">
+                {{ ('faq.items.' + key + '.a') | translate }}
+            </div>
+        </li>
+    </ul>
+</ng-container>

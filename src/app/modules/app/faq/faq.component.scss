@@ -4,7 +4,7 @@
     display: block;
     padding: 15px 0;
 
-    &__list {
+    &__mobile-list {
         width: 100%;
         background-color: #fff;
 
@@ -45,7 +45,7 @@
                 font-size: 14px;
                 line-height: 21px;
                 padding: 0 20px 22px;
-                font-weight: 500;
+                font-weight: $font-weight-medium;
             }
 
             &_active &-q {
@@ -60,7 +60,67 @@
         }
     }
 
+    &__list {
+        display: block;
+        width: 100%;
+
+        &-item {
+            display: block;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 1px 3px 0 rgba(14, 14, 14, 0.15);
+
+            & + & {
+                margin-top: 8px;
+            }
+
+            &-header {
+                display: flex;
+                flex-flow: row nowrap;
+                align-items: center;
+                width: 100%;
+                min-height: 58px;
+                padding: 10px 20px 10px 22px;
+                font-size: 16px;
+                line-height: 24px;
+                font-weight: $font-weight-semi-bold;
+                color: #656e7d;
+                cursor: pointer;
+
+                &-plus {
+                    flex-shrink: 0;
+                    transform-origin: 50% 50%;
+                }
+
+                &-text {
+                    display: block;
+                    margin-left: 14px;
+                    padding-top: 2px;
+                }
+            }
+
+            &_active &-header-plus {
+                transform: rotateZ(45deg);
+            }
+
+            &-answer {
+                display: none;
+                color: #7c828d;
+                padding: 0 20px 20px 59px;
+                font-size: 14px;
+                line-height: 22px;
+                font-weight: $font-weight-medium;
+            }
+
+            &_active &-answer {
+                display: block;
+            }
+        }
+    }
+
     html.viewport_desktop & {
-        padding-top: 35px;
+        padding: 35px 0 50px;
+        max-width: 600px;
+        margin: 0 auto;
     }
 }

@@ -1,5 +1,7 @@
 {
     "faq": {
+        "page_title": "FAQ",
+        "page_header": "FAQ",
         "items": {
             "what_is_tapnpay": {
                 "q": "What is tapNpay?",
@@ -96,9 +98,42 @@
         }
     },
     "terms": {
-        "accept": {
+        "page_title": "Terms & Conditions",
+        "page_header": "Terms & Conditions",
+        "form": {
+            "i_accept": "I accept Terms & Conditions and Privacy policy",
+            "send": "Ok"
+        },
+        "submit": {
             "ok": "Thank you! Terms are accepted",
             "error": "An error occurred while accepting terms"
+        }
+    },
+    "contact_us": {
+        "page_title": "Contact Us",
+        "page_header": "Contact Us",
+        "form": {
+            "first_name": "First Name",
+            "last_name": "Last Name",
+            "email": "Email",
+            "phone": "Phone",
+            "comment": "Comment",
+            "send": "Send"
+        },
+        "submit": {
+            "ok": "Thank you! We will contact you as soon as we read your message",
+            "error": "An error occurred while sending form"
+        }
+    },
+    "nav": {
+        "lang": {
+            "language": "Language",
+            "change": "Change Language"
+        },
+        "items": {
+            "faq": "FAQ",
+            "contact_us": "Contact Us",
+            "terms": "Terms & Conditions"
         }
     }
 }

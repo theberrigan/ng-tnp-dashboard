@@ -1,1 +1,33 @@
-<h1 class="page-header">Contact Us</h1>
+<h1 class="page-header" [innerHTML]="'contact_us.page_header' | translate"></h1>
+<fieldset class="contact-us__form" [disabled]="isSubmitting">
+    <form (submit)="onSubmit()" [formGroup]="form">
+        <label class="contact-us__label contact-us__label_required">
+            <span class="contact-us__label-text">{{ 'contact_us.form.first_name' | translate }}</span>
+            <input type="text" class="contact-us__input" required formControlName="firstName">
+        </label>
+        <label class="contact-us__label contact-us__label_required">
+            <span class="contact-us__label-text">{{ 'contact_us.form.last_name' | translate }}</span>
+            <input type="text" class="contact-us__input" required formControlName="lastName">
+        </label>
+        <label class="contact-us__label contact-us__label_required">
+            <span class="contact-us__label-text">{{ 'contact_us.form.email' | translate }}</span>
+            <input type="text" class="contact-us__input" required formControlName="email">
+        </label>
+        <label class="contact-us__label contact-us__label_required">
+            <span class="contact-us__label-text">{{ 'contact_us.form.phone' | translate }}</span>
+            <input type="text" class="contact-us__input" required formControlName="phone">
+        </label>
+        <label class="contact-us__label contact-us__label_required">
+            <span class="contact-us__label-text">{{ 'contact_us.form.comment' | translate }}</span>
+            <textarea class="contact-us__textarea" required formControlName="comment"></textarea>
+        </label>
+        <div class="contact-us__controls">
+            <button type="submit" class="button button_regular button_blue"
+                [isDisabled]="!isFormValid"
+                [isProgress]="isSubmitting"
+            >
+                <span class="button__caption">{{ 'contact_us.form.send' | translate }}</span>
+            </button>
+        </div>
+    </form>
+</fieldset>

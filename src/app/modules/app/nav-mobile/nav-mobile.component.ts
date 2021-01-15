@@ -2,7 +2,7 @@ import {
     ChangeDetectionStrategy,
     Component,
     HostBinding,
-    Input,
+    Input, OnDestroy,
     OnInit,
     Renderer2,
     ViewEncapsulation
@@ -11,7 +11,6 @@ import {Router} from '@angular/router';
 import {Subject, Subscription} from 'rxjs';
 import {defer} from '../../../lib/utils';
 import {LANGS, LangService} from '../../../services/lang.service';
-import {AppBarService} from '../../../services/app-bar.service';
 import {TermsService, TermsSession} from '../../../services/terms.service';
 
 type Layout = 'nav' | 'langs';
@@ -26,7 +25,7 @@ type Layout = 'nav' | 'langs';
         'class': 'nav-mobile'
     }
 })
-export class NavMobileComponent implements OnInit {
+export class NavMobileComponent implements OnInit, OnDestroy {
     readonly langs = LANGS;
 
     @HostBinding('class.nav-mobile_open')
@@ -63,14 +62,18 @@ export class NavMobileComponent implements OnInit {
             })
         );
 
-        this.langService.onLangChange(() => {
+        this.subs.push(this.langService.onLangChange(() => {
             this.currentLang = this.langService.getCurrentLangCode();
-        });
+        }));
 
         this.setTermsState(this.termsService.getTermsSession());
         this.subs.push(this.termsService.onTermsSessionChange.subscribe(session => {
             defer(() => this.setTermsState(session));
         }));
+    }
+
+    public ngOnDestroy () : void {
+        this.subs.forEach(sub => sub.unsubscribe());
     }
 
     setTermsState ({ isAcceptable, termsId } : TermsSession) {

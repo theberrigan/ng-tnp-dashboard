@@ -1,10 +1,12 @@
-import {ChangeDetectionStrategy, Component, OnInit, Renderer2, ViewEncapsulation} from '@angular/core';
+import {ChangeDetectionStrategy, Component, HostListener, OnInit, Renderer2, ViewEncapsulation} from '@angular/core';
 import {forIn} from 'lodash';
 import {NavigationEnd, Router} from '@angular/router';
 import {DeviceService, ViewportBreakpoint} from '../../services/device.service';
 import {TitleService} from '../../services/title.service';
-import {Subject} from 'rxjs';
+import {Subject, Subscription} from 'rxjs';
 import {TermsService, TermsSession} from '../../services/terms.service';
+import {ILang, LANGS, LangService} from '../../services/lang.service';
+import {DomService} from '../../services/dom.service';
 
 @Component({
     selector: 'app-root',
@@ -14,6 +16,10 @@ import {TermsService, TermsSession} from '../../services/terms.service';
     encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit {
+    readonly langs = LANGS;
+
+    currentLang : ILang;
+
     public viewportBreakpoint : ViewportBreakpoint;
 
     public mobileNavSubject = new Subject();
@@ -22,12 +28,16 @@ export class AppComponent implements OnInit {
 
     termsLink : string = '/terms';
 
+    isLangMenuActive : boolean = false;
+
     constructor (
         private renderer : Renderer2,
         private router : Router,
         private deviceService : DeviceService,
         private titleService : TitleService,
         private termsService : TermsService,
+        private langService : LangService,
+        private domService : DomService,
     ) {
         this.titleService.setRawTitle('tapNpay', false);
 
@@ -48,6 +58,14 @@ export class AppComponent implements OnInit {
 
         this.setTermsState(this.termsService.getTermsSession());
         this.termsService.onTermsSessionChange.subscribe(session => this.setTermsState(session));
+
+        this.updateCurrentLang();
+        this.langService.onLangChange(() => this.updateCurrentLang());
+    }
+
+    public updateCurrentLang () {
+        const currentLangCode = this.langService.getCurrentLangCode();
+        this.currentLang = this.langs.find(lang => lang.code === currentLangCode);
     }
 
     public ngOnInit () {
@@ -95,5 +113,28 @@ export class AppComponent implements OnInit {
         const appScreen = document.querySelector('.app-screen');
         this.renderer.listen(appScreen, 'transitionend', () => this.renderer.removeChild(appScreen.parentNode, appScreen));
         this.renderer.addClass(appScreen, 'app-screen_fade-out');
+    }
+
+    onLangItemClick (lang : ILang, e : any) {
+        this.currentLang = lang;
+        this.langService.use(lang.code);
+        this.domService.markEvent(e, 'langItemClick');
+    }
+
+    onLangMenuClick (e : any) {
+        this.domService.markEvent(e, 'langMenuClick');
+    }
+
+    onLangTriggerClick (e : any) {
+        this.domService.markEvent(e, 'langTriggerClick');
+    }
+
+    @HostListener('document:click', [ '$event' ])
+    onDocClick (e : any) {
+        if (this.domService.hasEventMark(e, 'langTriggerClick')) {
+            this.isLangMenuActive = !this.isLangMenuActive;
+        } else if (!this.domService.hasEventMark(e, 'langMenuClick') || this.domService.hasEventMark(e, 'langItemClick')) {
+            this.isLangMenuActive = false;
+        }
     }
 }

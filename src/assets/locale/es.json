@@ -94,5 +94,28 @@
                 "a": "Ingrese a tapNpay.biz y haga clic en “Contáctenos”. Si es una pregunta o una disputa sobre un cargo, puede usar tapNpay para disputar el cargo."
             }
         }
+    },
+    "terms": {
+        "page_title": "Términos y Condiciones",
+        "page_header": "Términos y Condiciones"
+    },
+    "contact_us": {
+        "page_title": "Contáctenos",
+        "page_header": "Contáctenos",
+        "form": {
+            "first_name": "Nombre",
+            "last_name": "Apellido",
+            "email": "Dirección de Correo Electrónico",
+            "phone": "Número de Teléfono",
+            "comment": "Comentario",
+            "send": "Enviar"
+        }
+    },
+    "nav": {
+        "items": {
+            "faq": "FAQ",
+            "contact_us": "Contáctenos",
+            "terms": "Términos y Condiciones"
+        }
     }
 }

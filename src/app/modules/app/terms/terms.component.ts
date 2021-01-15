@@ -14,7 +14,6 @@ import {LangService} from '../../../services/lang.service';
 import {fromEvent, Subscription, zip} from 'rxjs';
 import {TermsService} from '../../../services/terms.service';
 import {SafeHtml} from '@angular/platform-browser';
-import {AppBarService} from '../../../services/app-bar.service';
 import {DeviceService, ViewportBreakpoint} from '../../../services/device.service';
 import {defer} from '../../../lib/utils';
 import {ToastService} from '../../../services/toast.service';
@@ -66,7 +65,6 @@ export class TermsComponent implements OnInit, OnDestroy {
         private titleService : TitleService,
         private langService : LangService,
         private termsService : TermsService,
-        private appBarService : AppBarService,
         private deviceService : DeviceService,
         private toastService : ToastService,
     ) {
@@ -75,8 +73,8 @@ export class TermsComponent implements OnInit, OnDestroy {
     }
 
     public ngOnInit () {
-        this.titleService.setRawTitle('Terms & Conditions', false);
-        this.appBarService.setTitle('Terms & Conditions');
+        this.titleService.setTitle('terms.page_title');
+        this.titleService.setHeader('terms.page_header');
 
         this.termsId = this.route.snapshot.params['id'] || null;
         this.isReady = false;
@@ -157,12 +155,12 @@ export class TermsComponent implements OnInit, OnDestroy {
                 this.location.replaceState('/terms');
 
                 this.toastService.create({
-                    message: [ 'terms.accept.ok' ],
+                    message: [ 'terms.submit.ok' ],
                     timeout: 6000
                 });
             } else {
                 this.toastService.create({
-                    message: [ 'terms.accept.error' ],
+                    message: [ 'terms.submit.error' ],
                     timeout: 7000
                 });
             }

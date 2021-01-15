@@ -45,11 +45,120 @@ $footer-height: 56px;
 
     &__logo {
         margin-top: -6px;
-        margin-right: auto;
+        margin-right: 50px;
         width: 105px;
         height: 30px;
         background: transparent url('../../../assets/images/logo.jpg') center center no-repeat;
         background-size: contain;
+    }
+
+    &__lang {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        position: relative;
+        height: 100%;
+
+        &-trigger {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            flex-shrink: 0;
+            font-size: 14px;
+            line-height: 22px;
+            font-weight: $font-weight-semi-bold;
+            padding: 8px 0 8px 10px;
+            background-color: #fff;
+            color: #59606b;
+
+            &-text {
+                display: block;
+                margin-right: 5px;
+            }
+
+            &-arrow {
+                opacity: 0.6;
+            }
+        }
+
+        &-menu {
+            display: flex;
+            flex-flow: column nowrap;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            border-radius: 6px;
+            border: 1px solid #dde3eb;
+            background-color: #fff;
+            padding: 6px 0;
+            transform: translateY(10px);
+            box-shadow: 0 3px 12px rgba(27, 31, 35, 0.15);
+
+            &-item {
+                display: flex;
+                flex-flow: row nowrap;
+                align-items: center;
+                width: 100%;
+                white-space: nowrap;
+                cursor: default;
+                padding: 8px 16px;
+                color: #59606b;
+                background-color: #fff;
+
+                &:hover {
+                    color: #fff;
+                    background-color: $color-primary-blue;
+                }
+
+                &-mark {
+                    visibility: hidden;
+                }
+
+                &_active &-mark {
+                    visibility: visible;
+                }
+
+                &-text {
+                    display: block;
+                    margin-left: 8px;
+                    font-size: 14px;
+                    line-height: 20px;
+                    font-weight: $font-weight-medium;
+                }
+            }
+        }
+    }
+}
+
+.nav {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    height: 100%;
+    margin-right: auto;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: $font-weight-medium;
+
+    &__link {
+        & + & {
+            margin-left: 20px;
+        }
+
+        &_has-dot {
+            position: relative;
+
+            &:after {
+                content: '';
+                position: absolute;
+                border-radius: 50%;
+                height: 5px;
+                width: 5px;
+                background-color: #ff0000;
+                top: 2px;
+                right: -6px;
+            }
+        }
     }
 }
 
@@ -76,24 +185,5 @@ $footer-height: 56px;
 
     &__copyright {
 
-    }
-
-    &__link {
-        margin-left: 20px;
-
-        &_has-dot {
-            position: relative;
-
-            &:after {
-                content: '';
-                position: absolute;
-                border-radius: 50%;
-                height: 5px;
-                width: 5px;
-                background-color: #ff0000;
-                top: 2px;
-                right: -6px;
-            }
-        }
     }
 }
